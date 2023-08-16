@@ -10,13 +10,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.example.news.R
+import com.example.news.data.remote.models.Articles
 import com.example.news.ui.screens.newsScreen.state.NewsAction
 import com.example.news.ui.screens.newsScreen.state.NewsState
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun NewsScreen(
-    newsState: NewsState, event: (NewsAction) -> Unit, onItemSelect: () -> Unit
+    newsState: NewsState, event: (NewsAction) -> Unit, onItemSelect: (Articles) -> Unit
 ) {
     Scaffold(topBar = {
         CenterAlignedTopAppBar(

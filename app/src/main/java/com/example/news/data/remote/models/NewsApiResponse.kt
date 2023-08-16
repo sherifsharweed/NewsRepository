@@ -1,6 +1,7 @@
 package com.example.news.data.remote.models
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 
 data class NewsApiResponse(
@@ -18,10 +19,10 @@ data class Articles(
     @SerializedName("urlToImage") var urlToImage: String? = null,
     @SerializedName("publishedAt") var publishedAt: String? = null,
     @SerializedName("content") var content: String? = null
-)
+):Serializable
 
 
 data class Source(
     @SerializedName("id") var id: String? = null,
     @SerializedName("name") var name: String? = null
-)
+):Serializable

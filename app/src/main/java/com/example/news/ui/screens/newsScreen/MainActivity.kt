@@ -26,13 +26,14 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background
                 ) {
-                    NewsScreen(newsState = viewModel.newsState,
-                        event = viewModel::reducer,
-                        onItemSelect = {
-//todo make function to open article details
-                            val intent = Intent(baseContext, DetailsActivity::class.java)
-                            startActivity(intent)
-                        })
+                    NewsScreen(
+                        newsState = viewModel.newsState,
+                        event = viewModel::reducer
+                    ) {
+                        val intent = Intent(baseContext, DetailsActivity::class.java)
+                        intent.putExtra("article", it)
+                        startActivity(intent)
+                    }
                 }
             }
         }

@@ -55,3 +55,8 @@ val date = TextStyle(
     fontWeight = FontWeight.Light,
     fontSize = 12.sp
 )
+
+val buttonTitle = TextStyle(color = Color.White,
+    fontFamily = FontFamily.Default,
+    fontWeight = FontWeight.Normal,
+    fontSize = 12.sp)

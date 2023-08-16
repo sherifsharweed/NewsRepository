@@ -26,10 +26,11 @@ import com.example.news.data.remote.models.Articles
 import com.example.news.ui.theme.date
 import com.example.news.ui.theme.description
 import com.example.news.ui.theme.mainTitle
+import com.example.news.ui.utils.formatDate
 
 @Composable
 fun NewsList(
-    news: ArrayList<Articles>, onItemSelect: () -> Unit
+    news: ArrayList<Articles>, onItemSelect: (Articles) -> Unit
 ) {
     LazyColumn {
         items(news.size) { index ->
@@ -41,13 +42,13 @@ fun NewsList(
 
 @Composable
 fun NewItem(
-    articles: Articles, onItemSelect: () -> Unit
+    articles: Articles, onItemSelect: (Articles) -> Unit
 ) {
     Row(
         Modifier
             .fillMaxWidth()
             .padding(horizontal = 8.dp)
-            .clickable(onClick = onItemSelect),
+            .clickable(onClick = {onItemSelect(articles)}),
     ) {
         AsyncImage(
             model = ImageRequest.Builder(LocalContext.current)
@@ -67,7 +68,7 @@ fun NewItem(
             Text(text = articles.title ?: "", maxLines = 2, style = mainTitle)
             Text(text = articles.content ?: "", maxLines = 3, style = description)
             Text(
-                text = articles.publishedAt ?: "",
+                text = formatDate(articles.publishedAt) ?: "",
                 maxLines = 1,
                 style = date,
                 textAlign = TextAlign.Right

@@ -1,5 +1,6 @@
 package com.example.news.ui.screens.newsScreen
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -8,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
+import com.example.news.ui.screens.detailScreen.DetailsActivity
 import com.example.news.ui.screens.newsScreen.component.NewsScreen
 import com.example.news.ui.theme.NewsTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -28,6 +30,8 @@ class MainActivity : ComponentActivity() {
                         event = viewModel::reducer,
                         onItemSelect = {
 //todo make function to open article details
+                            val intent = Intent(baseContext, DetailsActivity::class.java)
+                            startActivity(intent)
                         })
                 }
             }

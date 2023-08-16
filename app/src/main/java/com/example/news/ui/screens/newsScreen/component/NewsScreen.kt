@@ -19,7 +19,9 @@ fun NewsScreen(
     newsState: NewsState, event: (NewsAction) -> Unit, onItemSelect: () -> Unit
 ) {
     Scaffold(topBar = {
-        CenterAlignedTopAppBar(title = { Text(text = stringResource(id = R.string.news)) })
+        CenterAlignedTopAppBar(
+            title = { Text(text = stringResource(id = R.string.news)) },
+        )
     }) { padding ->
         Box(
             modifier = Modifier.padding(padding),

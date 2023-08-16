@@ -2,4 +2,5 @@
     <string name="app_name">News</string>
     <string name="news">News</string>
     <string name="new_image">NewImage</string>
+    <string name="title_activity_details_activity">DetailsActivity</string>
 </resources>

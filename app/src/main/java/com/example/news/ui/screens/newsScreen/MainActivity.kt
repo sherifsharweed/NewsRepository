@@ -19,7 +19,6 @@ class MainActivity : ComponentActivity() {
     private val viewModel by viewModels<MainViewModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel.getAllNews()
         setContent {
             NewsTheme {
                 // A surface container using the 'background' color from the theme
@@ -28,6 +27,8 @@ class MainActivity : ComponentActivity() {
                 ) {
                     NewsScreen(
                         newsState = viewModel.newsState,
+                        searchBarState = viewModel.searchState,
+                        searchTextState = viewModel.searchTextState,
                         event = viewModel::reducer
                     ) {
                         val intent = Intent(baseContext, DetailsActivity::class.java)

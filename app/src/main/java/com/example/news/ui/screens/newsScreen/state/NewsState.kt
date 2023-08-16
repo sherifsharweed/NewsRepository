@@ -7,3 +7,7 @@ data class NewsState(
     val isError: Boolean = false,
     val news: ArrayList<Articles> = arrayListOf()
 )
+
+enum class SearchState {
+    OPENED, CLOSED
+}

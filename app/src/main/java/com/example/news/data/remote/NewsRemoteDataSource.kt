@@ -16,4 +16,13 @@ class NewsRemoteDataSource @Inject constructor(private val newsApiService: NewsA
         }
         return null
     }
+
+    override suspend fun getSearchedNews(text :String): NewsApiResponse? {
+        try {
+            val response = newsApiService.getSearchedNews(text)
+            return if (response.isSuccessful) response.body() else null
+        } catch (e: IOException) {
+            print(e.message)
+        }
+        return null    }
 }

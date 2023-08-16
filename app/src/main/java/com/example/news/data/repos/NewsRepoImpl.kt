@@ -9,4 +9,8 @@ class NewsRepoImpl @Inject constructor(private val remoteDataSource: RemoteDataS
         return remoteDataSource.getAllNews()?.articles
     }
 
+    override suspend fun getSearchedNews(text: String): ArrayList<Articles>? {
+        return remoteDataSource.getSearchedNews(text)?.articles
+    }
+
 }

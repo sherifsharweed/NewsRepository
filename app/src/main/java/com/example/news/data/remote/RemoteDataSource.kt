@@ -4,4 +4,7 @@ import com.example.news.data.remote.models.NewsApiResponse
 
 interface RemoteDataSource {
     suspend fun getAllNews(): NewsApiResponse?
+
+    suspend fun getSearchedNews(text: String): NewsApiResponse?
+
 }

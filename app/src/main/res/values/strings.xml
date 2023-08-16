@@ -4,4 +4,6 @@
     <string name="new_image">NewImage</string>
     <string name="title_activity_details_activity">DetailsActivity</string>
     <string name="go_to_website">Go to website</string>
+    <string name="no_data">There is no result\nplease use another word</string>
+    <string name="search_hint">Search here …</string>
 </resources>

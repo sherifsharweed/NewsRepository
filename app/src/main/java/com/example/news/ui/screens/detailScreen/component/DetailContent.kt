@@ -37,6 +37,7 @@ import com.example.news.ui.theme.buttonTitle
 import com.example.news.ui.theme.date
 import com.example.news.ui.theme.description
 import com.example.news.ui.theme.mainTitle
+import com.example.news.ui.utils.BACK_ICON
 import com.example.news.ui.utils.formatDate
 
 
@@ -50,7 +51,7 @@ fun DetailContent(article: Articles?, onBackButton: () -> Unit, onWebsiteClick: 
                 IconButton(onClick = onBackButton) {
                     Icon(
                         imageVector = Icons.Filled.ArrowBack,
-                        contentDescription = "Back",
+                        contentDescription = BACK_ICON,
                         tint = Color.Black
                     )
                 }

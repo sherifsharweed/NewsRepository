@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import com.example.news.ui.screens.detailScreen.DetailsActivity
 import com.example.news.ui.screens.newsScreen.component.NewsScreen
 import com.example.news.ui.theme.NewsTheme
+import com.example.news.ui.utils.ARTICLE
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -32,7 +33,7 @@ class MainActivity : ComponentActivity() {
                         event = viewModel::reducer
                     ) {
                         val intent = Intent(baseContext, DetailsActivity::class.java)
-                        intent.putExtra("article", it)
+                        intent.putExtra(ARTICLE, it)
                         startActivity(intent)
                     }
                 }

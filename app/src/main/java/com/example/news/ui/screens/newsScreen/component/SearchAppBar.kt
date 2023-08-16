@@ -16,15 +16,21 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.news.R
 import com.example.news.ui.theme.mainTitle
+import com.example.news.ui.utils.CLOSE_ICON
+import com.example.news.ui.utils.SEARCH_ICON
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalComposeUiApi::class)
 @Composable
 fun SearchAppBar(
     text: String,
@@ -32,6 +38,7 @@ fun SearchAppBar(
     onSearchClicked: (String) -> Unit,
     onCloseSearch: () -> Unit
 ) {
+    val keyboardController = LocalSoftwareKeyboardController.current
     Surface(
         modifier = Modifier
             .fillMaxWidth()
@@ -43,29 +50,42 @@ fun SearchAppBar(
             textStyle = mainTitle,
             modifier = Modifier.fillMaxWidth(),
             placeholder = {
-                Text(text = "Search here ...", color = Color.Gray, modifier = Modifier.alpha(0.5f))
+                Text(
+                    text = stringResource(id = R.string.search_hint),
+                    color = Color.Gray,
+                    modifier = Modifier.alpha(0.5f)
+                )
             },
             singleLine = true,
             leadingIcon = {
-                IconButton(onClick = { onSearchClicked(text) }, modifier = Modifier.alpha(0.5f)) {
+                IconButton(onClick = {
+                    onSearchClicked(text)
+                    keyboardController?.hide()
+                }, modifier = Modifier.alpha(0.5f)) {
                     Icon(
                         imageVector = Icons.Default.Search,
-                        contentDescription = "SearchIcon",
+                        contentDescription = SEARCH_ICON,
                         tint = Color.Black
                     )
                 }
             },
             trailingIcon = {
-                IconButton(onClick = onCloseSearch, modifier = Modifier.alpha(0.5f)) {
+                IconButton(onClick = {
+                    onCloseSearch()
+                    keyboardController?.hide()
+                }, modifier = Modifier.alpha(0.5f)) {
                     Icon(
                         imageVector = Icons.Default.Close,
-                        contentDescription = "CloseIcon",
+                        contentDescription = CLOSE_ICON,
                         tint = Color.Black
                     )
                 }
             },
             keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
-            keyboardActions = KeyboardActions(onSearch = { onSearchClicked(text) }), colors =
+            keyboardActions = KeyboardActions(onSearch = {
+                onSearchClicked(text)
+                keyboardController?.hide()
+            }), colors =
             TextFieldDefaults.textFieldColors(
                 cursorColor = Color.Black.copy(alpha = 0.5f),
                 containerColor = Color.White,

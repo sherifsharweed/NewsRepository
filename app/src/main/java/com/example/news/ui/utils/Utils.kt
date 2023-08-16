@@ -11,3 +11,9 @@ fun formatDate(articleDate: String?): String? {
     val formatter = SimpleDateFormat("dd-MM-yyyy HH:mm")
     return formatter.format(date)
 }
+
+const val ARTICLE = "article"
+const val BACK_ICON = "back"
+const val SEARCH_ICON ="search"
+const val CLOSE_ICON ="close"
+

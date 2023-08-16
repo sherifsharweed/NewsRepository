@@ -14,12 +14,13 @@ import androidx.compose.ui.Modifier
 import com.example.news.data.remote.models.Articles
 import com.example.news.ui.screens.detailScreen.component.DetailContent
 import com.example.news.ui.theme.NewsTheme
+import com.example.news.ui.utils.ARTICLE
 
 class DetailsActivity : ComponentActivity() {
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val article = intent.getSerializableExtra("article", Articles::class.java)
+        val article = intent.getSerializableExtra(ARTICLE, Articles::class.java)
         setContent {
             NewsTheme {
                 Surface(

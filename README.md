@@ -1,7 +1,7 @@
 # NewsRepository
-<img src="Pics/1.jpg" alt="1" height="300"/> <img src="Pics/2.jpg" alt="1" height="300"/>
-<img src="Pics/3.jpg" alt="1" height="300"/> <img src="Pics/4.jpg" alt="1" height="300"/>
-<img src="Pics/5.jpg" alt="1" height="300"/>
+<img src="Pics/1.png" alt="1" height="300"/> <img src="Pics/2.png" alt="1" height="300"/>
+<img src="Pics/3.png" alt="1" height="300"/> <img src="Pics/4.png" alt="1" height="300"/>
+<img src="Pics/5.png" alt="1" height="300"/>
 
 
 An application for News :

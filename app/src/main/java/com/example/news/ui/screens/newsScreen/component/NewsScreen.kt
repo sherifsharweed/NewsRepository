@@ -59,7 +59,17 @@ fun NewsScreen(
             if (newsState.loading) {
                 ShimmerList()
             } else if (newsState.isError) {
-                //todo show error message
+                Column(
+                    Modifier.fillMaxSize(),
+                    Arrangement.Center,
+                    Alignment.CenterHorizontally
+                ) {
+                    Text(
+                        stringResource(id = R.string.server_error),
+                        style = mainTitle,
+                        textAlign = TextAlign.Center
+                    )
+                }
             } else {
                 NewsList(
                     news = newsState.news, onItemSelect
@@ -70,7 +80,11 @@ fun NewsScreen(
                         Arrangement.Center,
                         Alignment.CenterHorizontally
                     ) {
-                        Text(stringResource(id = R.string.no_data), style = mainTitle, textAlign = TextAlign.Center)
+                        Text(
+                            stringResource(id = R.string.no_data),
+                            style = mainTitle,
+                            textAlign = TextAlign.Center
+                        )
                     }
                 }
             }

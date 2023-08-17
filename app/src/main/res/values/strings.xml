@@ -6,4 +6,5 @@
     <string name="go_to_website">Go to website</string>
     <string name="no_data">There is no result\nplease use another word</string>
     <string name="search_hint">Search here …</string>
+    <string name="server_error">Internal Server Error\nPlease try again</string>
 </resources>
